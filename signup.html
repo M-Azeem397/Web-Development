@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up / Sign In</title>
+    <style>
+        :root {
+            --bg1: #ffffff;
+            --accent: #007bff;
+            --glass: #f8f9fa;
+            --glass-2: #e9ecef;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            transition: background-color .18s, color .18s;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #13263e, #2c153f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .card {
+            position: relative;
+            z-index: 2;
+            width: 400px;
+            max-width: 94vw;
+            padding: 30px;
+            border-radius: 8px;
+            background-color: #172648 blur(10px);
+            box-shadow: 2px 4px 6px rgba(8, 8, 8, 0.7);
+            border: 1px solid #858080;
+        }
+
+        .card h2 {
+            margin: 0 0 20px;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+            color: #f4ecec;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #fff8f8;
+            margin-bottom: 20px;
+        }
+
+        .field {
+            position: relative;
+            margin: 15px 0;
+        }
+
+        .field input {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 4px;
+            border: 1.7px solid #02a2ff;
+            background: #fff;
+            color: #333;
+            outline: none;
+            transition: border-color .18s;
+        }
+
+        .field input::placeholder {
+            color: #999;
+        }
+
+        .field label {
+            position: absolute;
+            left: 14px;
+            top: 12px;
+            color: #666;
+            font-size: 0.9rem;
+            pointer-events: none;
+            transition: all .18s;
+            background: #fff;
+            padding: 0 4px;
+        }
+
+        .field input:focus {
+            border-color: var(--accent);
+        }
+
+        .field input:focus+label,
+        .field input:not(:placeholder-shown)+label {
+            top: -8px;
+            font-size: 0.75rem;
+            color: var(--accent);
+        }
+
+        .btn {
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px 14px;
+            border-radius: 4px;
+            border: none;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn:active {
+            transform: translateY(1px)
+        }
+
+        .btn .loader {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.18);
+            border-top-color: #fff;
+            display: none
+        }
+
+        .btn.loading .loader {
+            display: block;
+            animation: spin 0.9s linear infinite
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .or {
+            text-align: center;
+            margin-top: 12px;
+            color: rgba(234, 242, 255, 0.5);
+            font-size: 0.9rem
+        }
+
+        .small {
+            font-size: 0.85rem;
+            color: #dedede;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .success {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px
+        }
+
+        .check {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #0f5132;
+            display: inline-grid;
+            place-items: center
+        }
+
+        .check svg {
+            stroke: #7fffd4;
+            stroke-width: 3;
+            width: 16px;
+            height: 16px
+        }
+
+        footer {
+            position: fixed;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fafafa;
+            font-size: 0.85rem;
+        }
+
+        .mode-selector {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .mode-btn {
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 5px;
+            transition: all 0.18s;
+        }
+
+        .mode-btn.active {
+            background: var(--accent);
+            color: #fff;
+        }
+
+        .form-container {
+            display: block;
+        }
+
+        .form-container.hidden {
+            display: none;
+        }
+
+        .welcome {
+            text-align: center;
+            color: #d9d9d9;
+        }
+
+        .signout-btn {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px 14px;
+            border-radius: 4px;
+            border: none;
+            background: #dc3545;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card" role="region" aria-label="Sign up / sign in form">
+        <h2 id="formTitle">Sign Up</h2>
+        <div class="mode-selector">
+            <button id="signupMode" class="mode-btn active">Sign Up</button>
+            <button id="signinMode" class="mode-btn">Sign In</button>
+        </div>
+
+        <div id="signupForm" class="form-container">
+            <div class="subtitle">Create an account to get started.</div>
+
+            <form id="signupFormEl" novalidate>
+                <div class="field">
+                    <input id="username" name="username" type="text" placeholder=" " required minlength="3"
+                        maxlength="20" />
+                    <label for="username">Username</label>
+                </div>
+
+                <div class="field">
+                    <input id="email" name="email" type="email" placeholder=" " required />
+                    <label for="email">Email address</label>
+                </div>
+
+                <div class="field">
+                    <input id="password" name="password" type="password" placeholder=" " required minlength="8" />
+                    <label for="password">Password (min 8 chars)</label>
+                </div>
+
+                <button type="submit" id="submitBtn" class="btn">
+                    <span class="loader" aria-hidden></span>
+                    Register
+                </button>
+            </form>
+
+            <div class="small">By creating an account, you agree to our <a href="#">Terms of Service</a> and <a
+                    href="#">Privacy Policy</a>.</div>
+        </div>
+
+        <div id="signinForm" class="form-container hidden">
+            <div class="subtitle">Please enter your credentials to sign in.</div>
+
+            <form id="signinFormEl" novalidate>
+                <div class="field">
+                    <input id="signinEmail" name="email" type="email" placeholder=" " required />
+                    <label for="signinEmail">Email address</label>
+                </div>
+
+                <div class="field">
+                    <input id="signinPassword" name="password" type="password" placeholder=" " required />
+                    <label for="signinPassword">Password</label>
+                </div>
+
+                <button type="submit" id="signinBtn" class="btn">
+                    <span class="loader" aria-hidden></span>
+                    Sign In
+                </button>
+            </form>
+
+            <div class="small">Don't have an account? <a href="#" id="switchToSignup">Sign up here</a>.</div>
+        </div>
+
+        <div id="welcome" class="welcome hidden">
+            <h3>Welcome back, <span id="welcomeUser"></span>!</h3>
+            <button id="signoutBtn" class="signout-btn">Sign Out</button>
+        </div>
+    </div>
+
+    <footer>Sign Up / Sign In • Project AICT</footer>
+
+    <script>
+        function getUsers() {
+            const users = localStorage.getItem('users');
+            return users ? JSON.parse(users) : {};
+        }
+
+        function saveUsers(users) {
+            localStorage.setItem('users', JSON.stringify(users));
+        }
+
+        function getCurrentUser() {
+            return localStorage.getItem('currentUser');
+        }
+
+        function setCurrentUser(email) {
+            localStorage.setItem('currentUser', email);
+        }
+
+        function clearCurrentUser() {
+            localStorage.removeItem('currentUser');
+        }
+
+        const formTitle = document.getElementById('formTitle');
+        const signupMode = document.getElementById('signupMode');
+        const signinMode = document.getElementById('signinMode');
+        const signupForm = document.getElementById('signupForm');
+        const signinForm = document.getElementById('signinForm');
+        const welcome = document.getElementById('welcome');
+        const welcomeUser = document.getElementById('welcomeUser');
+        const signoutBtn = document.getElementById('signoutBtn');
+        const switchToSignup = document.getElementById('switchToSignup');
+
+        const currentUserEmail = getCurrentUser();
+        if (currentUserEmail) {
+            const users = getUsers();
+            const user = users[currentUserEmail];
+            if (user) {
+                showWelcome(user.username);
+            } else {
+                clearCurrentUser();
+            }
+        }
+
+        signupMode.addEventListener('click', () => {
+            setMode('signup');
+        });
+
+        signinMode.addEventListener('click', () => {
+            setMode('signin');
+        });
+
+        switchToSignup.addEventListener('click', (e) => {
+            e.preventDefault();
+            setMode('signup');
+        });
+
+        function setMode(mode) {
+            if (mode === 'signup') {
+                signupMode.classList.add('active');
+                signinMode.classList.remove('active');
+                signupForm.classList.remove('hidden');
+                signinForm.classList.add('hidden');
+                formTitle.textContent = 'Sign Up';
+            } else {
+                signinMode.classList.add('active');
+                signupMode.classList.remove('active');
+                signinForm.classList.remove('hidden');
+                signupForm.classList.add('hidden');
+                formTitle.textContent = 'Sign In';
+            }
+        }
+
+        function showWelcome(username) {
+            welcomeUser.textContent = username;
+            welcome.classList.remove('hidden');
+            signupForm.classList.add('hidden');
+            signinForm.classList.add('hidden');
+            document.querySelector('.mode-selector').style.display = 'none';
+            formTitle.textContent = 'Welcome';
+        }
+
+        function hideWelcome() {
+            welcome.classList.add('hidden');
+            document.querySelector('.mode-selector').style.display = 'flex';
+            setMode('signup');
+        }
+
+        signoutBtn.addEventListener('click', () => {
+            clearCurrentUser();
+            hideWelcome();
+        });
+
+        const signupFormEl = document.getElementById('signupFormEl');
+        const submitBtn = document.getElementById('submitBtn');
+
+        signupFormEl.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!signupFormEl.reportValidity()) return;
+
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const users = getUsers();
+            if (users[email]) {
+                alert('User already exists with this email.');
+                return;
+            }
+
+            users[email] = { username, password };
+            saveUsers(users);
+            setCurrentUser(email);
+
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+
+            setTimeout(() => {
+                submitBtn.classList.remove('loading');
+                submitBtn.innerHTML = '<span class="check" aria-hidden>\n  <svg viewBox="0 0 24 24" fill="none">\n    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>\n  </svg>\n</span> Signed up';
+                submitBtn.style.background = 'linear-gradient(90deg,#2ee6b6,#7fffd4)';
+
+                setTimeout(() => { window.location.href = 'team.html'; }, 900);
+            }, 1200);
+        });
+
+        const signinFormEl = document.getElementById('signinFormEl');
+        const signinBtn = document.getElementById('signinBtn');
+
+        signinFormEl.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!signinFormEl.reportValidity()) return;
+
+            const email = document.getElementById('signinEmail').value;
+            const password = document.getElementById('signinPassword').value;
+
+            const users = getUsers();
+            const user = users[email];
+            if (!user || user.password !== password) {
+                alert('Invalid email or password.');
+                return;
+            }
+
+            setCurrentUser(email);
+
+            signinBtn.classList.add('loading');
+            signinBtn.disabled = true;
+
+            setTimeout(() => {
+                signinBtn.classList.remove('loading');
+                signinBtn.innerHTML = '<span class="check" aria-hidden>\n  <svg viewBox="0 0 24 24" fill="none">\n    <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/>\n  </svg>\n</span> Signed in';
+                signinBtn.style.background = 'linear-gradient(90deg,#2ee6b6,#7fffd4)';
+
+                setTimeout(() => { window.location.href = 'team.html'; }, 900);
+            }, 1200);
+        });
+    </script>
+</body>
+
+</html>

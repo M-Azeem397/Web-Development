@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project AICT</title>
+    <link rel="Stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="outer">
+        <div id="inner">
+            <h1>Learners Domain</h1>
+            <p id="main" style="color: #ff8c00; margin-left: 200px;">Start your Ultimate Language learning
+                Journey Here!
+            </p>
+            <a href="signup.html" target="_blank">
+                <button class="bounce">Create Account</button>
+            </a>
+        </div>
+    </div>
+    <div class="nDiv">
+        <nav class="navbar">
+            <ul class="nav">
+                <a href="oop.html">Object Oriented Programming</a>
+                <a href="controlStructures.html">Control Structure</a>
+                <a href="arrays.html">Arrays & Strings</a>
+                <a href="functions.html">Functions</a>
+                <a href="pointers.html">Pointers</a>
+                <a href="oops.html">Objects & Classes</a>
+                <a href="team.html">Home Page</a>
+            </ul>
+        </nav>
+    </div>
+    <div>
+        <h3>Object Oriented Programming</h3>
+        <ul>
+            <li>
+                <h2>Computer Program</h2>
+                <p id="p1"><b><u>Computer programming</u></b> is the process of writing step-by-step instructions
+                    (code) in
+                    a specific language (like Python, Java, or JavaScript) that tell a computer how to perform
+                    tasks, solve
+                    problems, or create software, websites, and apps, forming the foundation of all modern
+                    technology. It
+                    involves logical design, coding, testing, and debugging, enabling humans to communicate complex
+                    commands
+                    to machines that only understand binary (0s and 1s). </p>
+            </li>
+
+            <li>
+                <h2>Header File & Reserved Words</h2>
+                <p id="p1"><u><b>Header files (.h)</b></u> in programming, especially C/C++, act as blueprints
+                    containing
+                    declarations (function prototypes, class definitions, constants, macros) that allow code to be
+                    organized
+                    across multiple source files, enabling modularity and code reuse; they're included using
+                    #include to
+                    tell the preprocessor to make those declarations available to the compiler, separating what
+                    something
+                    does (header) from how it does it (source file). </p>
+                <p id="p1"><u><b>Reserved words</b></u> (or keywords) are words in programming languages, databases,
+                    or
+                    operating systems that have predefined meanings and cannot be used by programmers for other
+                    purposes,
+                    like naming variables or files, because they are reserved for core functions (e.g., if, for,
+                    return,
+                    true). Using them as identifiers can cause errors, although some systems allow it if enclosed in
+                    special
+                    delimiters like brackets ([]). </p>
+            </li>
+
+            <li>
+                <h3>Structure of C++ Program</h3>
+                <br>
+                <pre id="p2"><br>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main()
+{
+    cout &lt;&lt; "Hello World!" &lt;&lt; endl; // Output statement
+    
+    return 0;
+}</pre><br>
+            </li>
+
+            <li>
+                <h3>Statement Terminator</h3>
+                <p id="p1">A statement terminator is a character, usually a semicolon (;), that signals the end of a
+                    command
+                    or
+                    instruction in programming and scripting languages like C, Java, SQL, and Python (optional),
+                    telling
+                    the interpreter or compiler that one logical statement is complete and another can begin,
+                    preventing
+                    ambiguity and ensuring correct parsing.</p>
+            </li>
+
+            <li>
+                <h3>Comments in C++</h3>
+                <p id="p1">
+                    Comments in C++ are non-executable lines of text that programmers use to document code, enhance
+                    readability, and debug programs; they are entirely ignored by the compiler.<br><br>
+                    <b>1. Single-Line Comments (C++ Style)</b><br>
+                    Single-line comments start with two forward slashes (//) and continue to the end of the current
+                    line.<br>
+                    <code>// This is a single-line comment</code><br><br>
+                    <b>2. Multi-Line Comments (C-Style or Block Comments)</b><br>
+                    Multi-line comments start with /* and end with */. Any text between these delimiters is treated
+                    as a
+                    comment, even if it spans multiple lines.
+                </p>
+            </li>
+            <li>
+                <h2>C++ Conatants & Variables</h2>
+                <p id="p1">In C++, variables are named memory locations used to store data values that can change
+                    during program execution, while constants are fixed values that cannot be altered after
+                    initialization.
+                    Variables
+                    A variable is a container for storing data. Each variable must have a unique name (identifier)
+                    and a specified data type.
+                    Declaration Syntax: data_type variable_name;
+                    Initialization Syntax: data_type variable_name = value;<br>
+                <pre id="p2">int age = 25;
+float price;
+price = 9.99; // Value can be changed later
+</pre>
+                <br>
+                <b>Common Data Types:</b>
+                int: Stores integers (whole numbers).
+                double: Stores double-precision floating-point numbers (decimals).
+                char: Stores single characters, enclosed in single quotes (e.g., 'A').
+                string: Stores text (sequences of characters), enclosed in double quotes (e.g., "Hello").
+                bool: Stores boolean values (true or false).
+                </p>
+                <p>
+                    <b>Constants</b>
+                    A constant (often called a "named constant" or "symbolic constant") is a variable whose value is
+                    read-only and remains the same throughout the program's execution. This improves code
+                    readability and prevents accidental modification of critical values.<br><br>
+                    <b>Declaration Syntax</b> (using const keyword): The most common and preferred method is using
+                    the
+                    const keyword. A constant must be assigned a value when declared.<br>
+                <pre id="p2">const int MINUTES_PER_HOUR = 60;
+const float PI = 3.14159;
+</pre>
+                <br>
+                <b>Error Example:</b> Trying to change a constant's value will result in a compilation error.<br>
+                <pre id="p2">const int myNum = 15;
+myNum = 10; // Error: assignment of read-only variable 'myNum'
+</pre> <br>
+                <b>Alternative Method</b> (using #define preprocessor directive): This older method is less
+                type-safe and generally less preferred in modern C++.<br>
+                <pre id="p2">#define PI 3.14159                  
+</pre><br>
+                <h3>Key Differences</h3>
+                <table border="1" id="tab">
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Variable</th>
+                        <th>Constant</th>
+                    </tr>
+                    <tr>
+                        <th>Value</th>
+                        <th>Can be changed after initialization.</i></th>
+                        <th>Value is fixed once initialized.</th>
+                    </tr>
+                    <tr id="rows">
+                        <th>Declaration</th>
+                        <th>Declared without the const keyword.</th>
+                        <th>Declared using the const or constexpr keyword.</th>
+                    </tr>
+                    <tr id="rows">
+                        <th>Initialization</th>
+                        <th>Can be initialized at declaration or later.</th>
+                        <th>Must be initialized at the time of declaration.</th>
+                    </tr>
+                    <tr id="rows">
+                        <th>Usage</th>
+                        <th>Useful for data that changes (e.g., user input, calculations).</th>
+                        <th>Useful for fixed values (e.g., math constants, limits, configuration settings).</th>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <h3>Rules for Specifying Variable Names</h3>
+                <p id="p1">The rules for specifying variable names, also known as identifiers, are largely
+                    consistent across most programming languages, with minor variations.</p>
+                <h4>Mandatory Rules</h4>
+                <p id="p1">These rules are syntactical requirements that must be followed for the code to compile or
+                    run:</p>
+                <p id="p1"><b>Allowed characters:</b>
+                    Names can only contain letters (A-z), digits (0-9), and underscores (_). Some languages like
+                    JavaScript and IBM's SPSS also permit the dollar sign ($).<br>
+                    <b>Starting character:</b> A variable name must start with a letter or an underscore. It cannot
+                    start with a number.<br>
+                    <b>No spaces or special characters:</b> Variable names cannot contain white spaces or most
+                    special characters like !, #, or %.
+                    Reserved words: You cannot use a programming language's reserved keywords (e.g., if,
+                    for, while, int, var) as a variable name. Case-sensitivity: Variable names are case-sensitive.
+                    For example, age, Age, and AGE are
+                    treated as three different variables.
+                </p>
+                <h4>Best Practices and Conventions</h4>
+                <p id="p1">
+                    Beyond the mandatory rules, following these conventions makes code more readable and
+                    maintainable for you and other developers:<br>
+                    <b>Use descriptive names:</b> Choose names that clearly indicate the purpose or content of the
+                    variable (e.g., user_name instead of un or x). This makes the code self-documenting.<br>
+                    <b>Be consistent:</b> Adhere to a single naming style throughout your project or team to ensure
+                    uniformity.<br>
+                    <b>Naming conventions:</b> Use established conventions for multi-word names:<br>
+                    <b id="b2">Camel Case:</b> The first word is lowercase, and subsequent words start with a
+                    capital letter (e.g., myVariableName).<br>
+                    <b id="b2">Pascal Case</b> (often used for classes): Each word starts with a capital letter
+                    (e.g.,
+                    MyVariableName).<br>
+                    <b id="b2">Snake Case:</b> Words are separated by an underscore (e.g., my_variable_name).<br>
+                    <b>Scope consideration:</b> For short-lived loop counters, single-letter names like i, j, or k
+                    are
+                    often acceptable and conventional.<br>
+                    <b>Avoid confusing names:</b> Do not create two different variables with names that differ only
+                    by
+                    case (e.g., score and Score) as this can easily lead to confusion.
+                </p>
+            </li>
+            <li>
+                <h2>C++ Data Types</h2>
+                <p id="p1">C++ data types are used to define the type of data a variable can hold, which determines
+                    the amount of memory allocated and the operations that can be performed. They are broadly
+                    categorized into three groups: Built-in (Primitive), Derived, and User-Defined data types. </p>
+                <h4>Built-in (Primitive) Data Types</h4>
+                <p id="p1">These are the fundamental data types pre-defined within the language. </p>
+                <table border="1" id="tab">
+                    <tr>
+                        <th>Data Type</th>
+                        <th>KeyWord</th>
+                        <th>Description</th>
+                        <th>Size(typical)</th>
+                    </tr>
+                    <tr>
+                        <th>Boolean</th>
+                        <th>bool</th>
+                        <th>Stores logical values: true or false.</th>
+                        <th>1 byte</th>
+                    </tr>
+                    <tr>
+                        <th>Character</th>
+                        <th>char</th>
+                        <th>Stores a single character or ASCII values.</th>
+                        <th>1 byte</th>
+                    </tr>
+                    <tr>
+                        <th>Integer</th>
+                        <th>int</th>
+                        <th>Stores whole numbers without decimals.</th>
+                        <th>4 bytes</th>
+                    </tr>
+                    <tr>
+                        <th>Floating Point</th>
+                        <th>float</th>
+                        <th>Stores fractional numbers with single precision (around 6-7 decimal digits).</th>
+                        <th>4 bytes</th>
+                    </tr>
+                    <tr>
+                        <th>Double Floating Point</th>
+                        <th>double</th>
+                        <th>Stores fractional numbers with double precision (around 15 decimal digits).</th>
+                        <th>8 byte</th>
+                    </tr>
+                    <tr>
+                        <th>Valueless</th>
+                        <th>void</th>
+                        <th>Represents the absence of a type, primarily used for functions that do not return a
+                            value.</th>
+                        <th>N/A</th>
+                    </tr>
+                    <tr>
+                        <th>Wide Character</th>
+                        <th>wchar_t</th>
+                        <th>Used for wide characters, primarily for larger character sets.</th>
+                        <th>2 to 4 byte</th>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <h3>The Const Qualifier</h3>
+                <p id="p1">The const qualifier in C/C++ declares a variable as a constant, meaning its value cannot
+                    be changed after initialization, making it read-only and preventing accidental modification,
+                    which improves code safety, readability, and maintainability by clearly signaling intended fixed
+                    values like PI or array sizes. While it generally makes a variable immutable, const behavior
+                    with pointers can be complex, as it qualifies the data the pointer points to, the pointer
+                    itself, or both, depending on its placement. </p>
+                <h4>Key Aspects of const</h4>
+                <p id="p1"><b>Immutability:</b> Once initialized, the value of a const variable should not be
+                    altered.<br>
+                    <b>Compiler Enforcement:</b> The compiler generates an error if you try to reassign a const
+                    variable, protecting it from change.<br>
+                    <b>Clarity & Safety:</b> It signals programmer intent, making code easier to understand and less
+                    prone to bugs from unintended modifications.<br>
+                    <b>Syntax:</b> const &lt;type&gt; &lt;variable_name&gt; = &lt;value&gt;; (e.g., const int PI =
+                    3.14;).
+                </p>
+                <h4>const with Pointers (C/C++)</h4>
+                <p id="p1">The placement of const changes what it protects:<br>
+                    <i id="i1">const int *p; (or int const *p;):</i> p points to a const integer. You can change p to
+                    point<br>
+                    to another integer, but not the integer's value through p.<br>
+                    <i id="i1">int * const p;:</i> p is a const pointer to an integer. You cannot change p to point to a
+                    different integer, but you can change the integer's value.<br>
+                    <i id="i1">const int * const p;:</i> p is a const pointer to a const integer. Neither the pointer
+                    nor
+                    the integer's value can be changed.
+                </p>
+            </li>
+            <li>
+                <h3>Variable Declaration & Initialization</h3>
+                <p id="p1">Variable declaration creates a variable (reserves memory, gives it a name/type), while
+                    initialization assigns its first value, often in the same line, though they can be separate steps,
+                    with declaration defining its existence and initialization giving it meaning, preventing errors from
+                    using unassigned data. Declaration says "this variable exists," and initialization says "this
+                    variable equals this value," preventing unpredictable behavior.</p>
+                <h4>Declaration</h4>
+                <p id="p1"><b>Purpose:</b> Tells the compiler/interpreter about the variable's name and data type (e.g.,
+                    int, string).<br>
+                    <b>Action:</b> Reserves memory space for the variable.<br>
+                    <b>Example:</b> int age; (declares an integer variable named age).
+                </p>
+                <h4>Initialization</h4>
+                <p id="p1"><b>Purpose:</b> Assigns the very first value to a declared variable.<br>
+                    <b>Action:</b> Places data into the reserved memory.<br>
+                    <b>Example:</b> age = 25; (assigns 25 to the age variable).
+                </p>
+                <h4>Combined Declaration & Initialization</h4>
+                <p id="p1">In many languages, you can do both at once:<br>
+                    <u>int score = 0;</u><br>
+                    <u>string userName = "Alice";</u>
+                </p>
+                <h4>Key Differences & Importance</h4>
+                <p id="p1"><b>Separate Steps:</b> You can declare a variable and initialize it later (e.g., int count;
+                    count = 10;).<br>
+                    <b>Prevents Errors:</b> Using a variable before initialization can cause errors or unpredictable
+                    results (garbage values).<br>
+                    <b>Language Variations:</b> Some languages (like Python) infer types, while others (like C++)
+                    require explicit type declaration. JavaScript initializes declared variables to undefined if no
+                    value is given.
+                </p>
+            </li>
+            <li>
+                <h3>Type Casting</h3>
+                <p id="p1">Type casting in C++ is the process of converting a value from one data type to another to
+                    ensure compatibility and correct operations. Conversions can occur automatically (implicit) or be
+                    specified manually by the programmer (explicit), with the latter being the focus of modern C++
+                    practices for safety and clarity. </p>
+                <h3>Implicit Type Conversion (Coercion)</h3>
+                <p id="p1">Implicit conversion is performed automatically by the compiler when it is safe to do so
+                    without potential data loss. This usually happens when converting a smaller data type to a larger
+                    one (promotion) or when different data types are used in an expression.<br>
+                    <b>Example:</b> Converting an int to a double.
+                </p>
+                <pre id="p2">int intValue = 42;
+                double doubleValue = intValue; // Implicit conversion from int to double
+                // doubleValue is now 42.0
+                </pre>
+                <p id="p1"><b>Data Loss:</b> Data loss can occur in narrowing conversions, such as assigning a double
+                    with a fractional part to an int, where the decimal portion is truncated. </p>
+                <h3>Explicit Type Conversion (Type Casting)</h3>
+                <p id="p1">Explicit casting is done manually by the programmer using a cast operator to force a
+                    conversion. This is essential when potential data loss might occur or when dealing with complex
+                    object hierarchies. </p>
+                <h4>C++ Style Cast Operators</h4>
+                <p id="p1">Modern C++ offers four specific cast operators, which are preferred over the older C-style
+                    casts because they provide better type checking, readability, and reduce the risk of unintended
+                    behavior.
+                    static_cast: Performs conversions between related types at compile time, such as between numeric
+                    types (int to float), or between pointers/references to related classes in an inheritance hierarchy
+                    (if the conversion is unambiguous).</p><br>
+                <pre id="p2">double pi = 3.14;
+                int integer_pi = static_cast<int>(pi); // integer_pi is 3
+                </pre>
+                <p id="p1"><b>dynamic_cast:</b> Used for safe downcasting in polymorphic class hierarchies (classes with
+                    at
+                    least one virtual function). It performs a runtime check to verify the cast's validity and returns a
+                    nullptr (for pointers) or throws a std::bad_cast exception (for references) if the cast fails.</p>
+                <br>
+                <pre id="p2">Base* basePtr = new Derived;
+Derived* derivedPtr = dynamic_cast&lt;Derived*&gt;(basePtr);
+if (derivedPtr) {
+    // use derivedPtr safely
+}
+</pre><br>
+                <p id="p1"><b>const_cast:</b> Used to add or remove the const or volatile qualifier from a pointer or
+                    reference. This is useful for passing a const object to a function that only accepts a non-const
+                    argument.</p><br>
+                <pre id="p2">const int value = 50;
+int& nonConstRef = const_cast&lt;int&&gt;(value);
+nonConstRef = 100; // Modifies the original 'value'
+</pre><br>
+                <p id="p1"><b>reinterpret_cast:</b> Used for low-level, potentially unsafe conversions between unrelated
+                    types,
+                    such as converting a pointer of one type to a pointer of another type, or between a pointer and an
+                    integer type. It should be used with extreme caution and is not guaranteed to be portable.</p><br>
+                <pre id="p2">int i = 42;
+char* charPtr = reinterpret_cast<char*>(&i); // Reinterprets the memory address
+</pre><br>
+                <p id="p1">Using the specific C++ casts over C-style casts improves code safety, readability, and helps
+                    the compiler identify potential errors. </p>
+            </li>
+            <li>
+                <h2>Input Output (I/O) Handling</h2>
+                <h3>The Cout Statement</h3>
+                <p id="p1">The cout statement in C++ is a predefined object of the ostream class used to display output
+                    (text, numbers, or variables) to the standard output device, which is typically the console or
+                    screen.
+                </p>
+                <h4>Key Components</h4>
+                <p id="p1">cout <b>object:</b> Stands for "character output" and is the destination for the data being
+                    displayed.<br>
+                    <b>Insertion operator (&lt;&lt;):</b> This operator is used to "insert" data into the cout stream.
+                    It can be chained multiple times in a single statement to output various items sequentially.<br>
+                    <b>#include &lt;iostream&gt;:</b> This header file must be included in your program to use cout, as
+                    it contains the definition of the cout object.<br>
+                    <b>using namespace std;:</b> This directive allows you to use cout directly; without it, you would
+                    have to write std::cout.
+                </p>
+                <h5>Basic Usage Examples</h5><br>
+                <pre id="p2">#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+  // Output a simple string literal
+  cout &lt;&lt; "Hello, World!";
+
+  // Output a variable's value
+  int age = 25;
+  cout &lt;&lt; "I am " &lt;&lt; age &lt;&lt; " years old.";
+
+  // Add a newline character using '\n' or `endl`
+  cout &lt;&lt; "This is on one line.\n";
+  cout &lt;&lt; "This is on a new line." &lt;&lt; endl;
+
+  return 0;
+}
+</pre><br>
+                <h4>Important Notes</h4>
+                <p id="p1"><b>No Automatic Line Breaks:</b> cout does not automatically add a new line after each
+                    statement. You must explicitly use the newline escape sequence \n or the endl manipulator. endl also
+                    flushes the output buffer, while \n generally does not, making \n slightly more efficient in some
+                    cases.<br>
+                    <b>Chaining:</b> Multiple &lt;&lt; operators can be used in one line to combine text and variables
+                    seamlessly.
+                    Semicolons: Every cout statement must end with a semicolon (;).
+                </p>
+                <h4>Further Formatting</h4>
+                <p id="p1">cout can be used with manipulators and member functions (like setprecision, setw, setfill) to
+                    format the output, which often requires including the <iomanip> header file.
+                </p>
+                <h3>The Cin Statement</h3>
+                <p id="p1">The cin statement in C++ is used to read input from the standard input device (typically the
+                    keyboard) and store it in a variable. It is a predefined object of the istream class and is declared
+                    in the &lt;iostream&gt; header file.
+                </p>
+                <h4>Key Concepts</h4>
+                <p id="p1"><b>cin:</b> The name cin stands for "character input". It is a global object that manages the
+                    input stream from the standard input device.<br>
+                    <b>Extraction Operator (&gt;&gt;):</b> The cin object is used with the stream extraction operator
+                    (&gt;&gt;) to extract data from the input stream and assign it to a variable.<br>
+                    <b>Syntax:</b> The basic syntax for using cin is cin >> variable_name;.
+                    Namespace: To use cin without prefixing it with std::, you must include using namespace std; in your
+                    program.
+                </p>
+                <h5>Example</h5>
+                A simple C++ program demonstrating cin:
+                <br>
+                <pre id="p2">#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+  int age;
+  cout &lt;&lt; "Enter your age: "; // Prompt the user for input
+  cin >> age;                // Read the integer input and store it in 'age'
+  cout &lt;&lt; "You are " &lt;&lt; age &lt;&lt; " years old." &lt;&lt; endl; // Display the input
+  return 0;
+}
+</pre><br>
+                <h4>Reading Multiple Inputs</h4>
+                You can read multiple values in a single cin statement by chaining the extraction operator:<br>
+                <pre id="p2">int a, b, c;
+cout &lt;&lt; "Enter three numbers separated by spaces: ";
+cin >> a >> b >> c; // Read all three inputs in one line
+</pre><br>
+                When entering multiple inputs this way, the user should separate the values with spaces or newlines.
+                <h4>Important Considerations</h4>
+                <p id="p1"><b>Whitespace as Delimiter:</b> By default, the &gt;&gt; operator considers whitespace
+                    (spaces, tabs, and newlines) as delimiters. This means cin &gt;&gt; will only read a single word or
+                    number at a time. If you input "John Doe", only "John" will be stored in the first variable, and
+                    "Doe" will remain in the input buffer for the next input operation.<br>
+                    <b>Input Failure:</b> If the user enters data that does not match the expected variable type (e.g.,
+                    entering a letter for an integer variable), the cin stream enters a "fail" state, and further input
+                    operations are blocked until the error flags are cleared using cin.clear() and the buffer is cleared
+                    using [cin.ignore()](https://www.geeksfor Geeks.org/cpp/cin-ignore-function-in-cpp/).<br>
+                    <b>Reading Lines with Spaces:</b> To read an entire line of text, including spaces, it is often
+                    better to use member functions like getline() (for strings) or cin.getline() (for character arrays).
+                </p>
+
+                <h3>The getch(), gets(), and puts() Functions</h3>
+                <p id="p1">The functions getch(), gets(), and puts() are primarily C standard library functions (or
+                    non-standard extensions) and are less common in modern C++ programming, which typically uses
+                    std::cin and std::cout. The gets() function is deprecated and unsafe due to buffer overflow
+                    vulnerabilities and should be avoided.
+                    Here are examples of how they are used, keeping in mind they require C-style headers and some
+                    (getch(), gets()) are non-standard or unsafe. </p>
+                <h4>getch() Function Example</h4>
+
+                The getch() function reads a single character directly from the keyboard without echoing it to the
+                screen or waiting for the Enter key. It is a non-standard function found in the &lt;conio.h&gt; (or
+                &lt;conio.h&gt; in C++) header file, which is common in older compilers like Turbo C/C++.
+                <br>
+                <pre id="p2">#include &lt;iostream&gt;
+#include &lt;conio.h&gt; // Required for getch()
+
+int main() {
+    char ch;
+    std::cout &lt;&lt; "Press any key to continue: ";
+    ch = getch(); // Reads a character without displaying it
+    std::cout &lt;&lt; "\nYou pressed the key with ASCII value: " &lt;&lt; (int)ch &lt;&lt; std::endl;
+    // An alternative use of getch() is to pause the program output screen
+    // until a key is pressed.
+    return 0;
+}
+</pre><br>
+                Note: This code might not compile on modern/online compilers that adhere strictly to the C++ standard.
+                The standard C++ equivalent is typically achieved using platform-specific APIs or libraries.
+                <h4>gets() and puts() Functions Example </h4>
+                <p id="p1">The gets() function reads a string from standard input until a newline character is
+                    encountered. The puts() function writes a string to standard output and automatically appends a
+                    newline character. Both are part of the &lt;cstdio&gt; header (C standard I/O library) in C++.</p>
+                Caution: gets() is dangerous and removed from the C++ standard. Use std::getline() in C++ or fgets() in
+                C instead.<br>
+                <pre id="p2">#include &lt;conio.h&gt; // Required for gets() and puts()
+#include &lt;iostream&gt;
+
+int main() {
+    char str[100];
+
+    std::cout &lt;&lt; "Enter a string (gets() is unsafe, use with caution):" &lt;&lt; std::endl;
+    // gets(str); // UNWISE TO USE!
+    // A safer alternative using fgets():
+    std::fgets(str, 100, stdin); // Reads up to 99 characters or a newline
+
+    std::cout &lt;&lt; "You entered:" &lt;&lt; std::endl;
+    std::puts(str); // Displays the string and adds a newline
+
+    return 0;
+}
+</pre><br>
+                <h4>Modern C++ Alternatives</h4>
+                <p id="p1">In modern C++, you should use the input/output streams for safer and more robust code:
+                    For single characters, use std::cin.get().
+                    For strings, use std::getline() with std::cin for input and std::cout for output.
+                </p><br>
+                <pre id="p2">#include &lt;iostream&gt;
+#include &lt;string&gt;
+
+int main() {
+    std::string name;
+    std::cout &lt;&lt; "Enter your full name: ";
+    std::getline(std::cin, name); // Reads an entire line safely
+
+    std::cout &lt;&lt; "Hello, " &lt;&lt; name &lt;&lt; "!" &lt;&lt; std::endl;
+
+    return 0;
+}
+</pre><br>
+                <h3>The Escape Sequences</h3>
+                <p id="p1">In C++, an escape sequence is a series of characters beginning with a backslash (\) used
+                    within character or string literals to represent special characters or control the formatting of
+                    output that would otherwise be difficult or impossible to type directly.
+                    They are considered a single character by the compiler and are primarily used for:
+                    Representing non-printable characters like newlines or tabs.
+                    Including characters that have special meaning in C++, such as double quotes (") within a string
+                    literal.
+                </p>
+                <h4>Common C++ Escape Sequences</h4>
+                <table border="1" id="tab">
+                    <tr>
+                        <th>Escape Sequence</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Example Usage</th>
+                    </tr>
+                    <tr>
+                        <th>\n</th>
+                        <th>Newline (Line Feed)</th>
+                        <th>Moves the cursor to the beginning of the next line.</th>
+                        <th>cout &lt;&lt; "Line 1\nLine 2";</th>
+                    </tr>
+                    <tr>
+                        <th>\t</th>
+                        <th>Horizontal Tab</th>
+                        <th>Inserts a horizontal tab space.</th>
+                        <th>cout &lt;&lt; "Name:\tJohn";</th>
+                    </tr>
+                    <tr>
+                        <th>\\</th>
+                        <th>Backslash</th>
+                        <th>Inserts a literal backslash character (\).</th>
+                        <th>cout &lt;&lt; "C:\\\\Path\\\\To\\\\File";</th>
+                    </tr>
+                    <tr>
+                        <th>\"</th>
+                        <th>Double Quote</th>
+                        <th>Inserts a double quotation mark (") within a string literal.</th>
+                        <th>cout &lt;&lt; "He said \"Hello\"";</th>
+                    </tr>
+                    <tr>
+                        <th>\'</th>
+                        <th>Single Quote</th>
+                        <th>Inserts a single quotation mark (') within a character literal or string.</th>
+                        <th>char myChar = '\'';</th>
+                    </tr>
+                    <tr>
+                        <th>\'r/th>
+                        <th>Carriage Return</th>
+                        <th>Moves the cursor to the beginning of the current line, overwriting previous content.</th>
+                        <th>cout &lt;&lt; "World\rHello"; (Output: "Hello")</th>
+                    </tr>
+                    <tr>
+                        <th>\'a/th>
+                        <th>Alert (Bell)</th>
+                        <th>Produces an audible or visual alert (beep), depending on the system.</th>
+                        <th>cout &lt;&lt; "Error\a";</th>
+                    </tr>
+                    <tr>
+                        <th>\'b/th>
+                        <th>Backspace</th>
+                        <th>Moves the cursor one position backward.</th>
+                        <th>cout &lt;&lt; "World\b\bHi"; (Output: "WoHi")</th>
+                    </tr>
+
+                    <tr>
+                        <th>\'f/th>
+                        <th>Form Feed</th>
+                        <th>Advances the printer to the next logical page (rarely used in modern console apps).</th>
+                        <th>N/A</th>
+                    </tr>
+                    <tr>
+                        <th>\v</th>
+                        <th>Vertical Tab</th>
+                        <th>Inserts a vertical tab (behavior varies by system).</th>
+                        <th>N/A</th>
+                    </tr>
+                    <tr>
+                        <th>\0</th>
+                        <th>Null Character</th>
+                        <th>Terminates a string (all C-style strings are null-terminated).</th>
+                        <th>Echar str[] = "Hello\0World"; (String ends after "Hello")</th>
+                    </tr>
+                </table>
+                <h4>Advanced Escape Sequences</h4>
+                <p id="p1"><b>Octal notation (\ooo):</b> A backslash followed by up to three octal digits (e.g., \101
+                    for the character 'A' in ASCII).<br>
+                    <b>Hexadecimal notation (\x*hh*):</b> A backslash, followed by x, then one or more hexadecimal
+                    digits (e.g., \x41 for 'A').<br>
+                    <b>Unicode universal character names (\u*hhhh* or \U*hhhhhhhh*):</b> Used to represent Unicode
+                    characters (e.g., \u2665 for '♥').
+                </p>
+                <h4>Alternative: Raw String Literals</h4>
+                For situations involving many special characters (such as file paths or regular expressions), C++11
+                introduced raw string literals which ignore escape sequences. They are defined using the R"( ... )"
+                syntax:<br>
+                <pre id="p2">#include &lt;iostream&gt;
+int main() {
+    // Using escape sequences
+    std::cout &lt;&lt; "Path: C:\\\\Users\\\\Name\n";
+
+    // Using a raw string literal (no escapes needed)
+    std::cout &lt;&lt; R"(Path: C:\Users\Name\n)"; // Prints the literal "\n"
+    return 0;
+}
+</pre><br>
+                <h3>The Manipulators in C++</h3>
+                <p id="p1"><b>C++ manipulators</b> are special functions used with the insertion (&lt;&lt;) and
+                    extraction (&gt;&gt;) operators to control the formatting and behavior of input and output streams
+                    (like std::cin and std::cout). They do not change the value of the variable itself, but rather how
+                    it is presented or read.
+                    Manipulators are typically found in the &lt;iostream&gt;, &lt;iomanip&gt;, and &lt;ios&gt; header
+                    files.
+                </p>
+                <h4>Key C++ Manipulators</h4>
+                Manipulators can be categorized into those without arguments and those with arguments.
+                <h4>Manipulators Without Arguments</h4>
+                <p id="p1">These apply a change to the stream's state without needing extra input.
+                    <b>std::endl:</b> Inserts a newline character (\n) and immediately flushes the output buffer,
+                    ensuring the output appears on the screen in real-time.<br>
+                    <b>std::flush:</b> Flushes the output stream buffer without adding a newline.<br>
+                    <b>std::ws:</b> In input streams, it extracts and discards leading whitespace characters (spaces,
+                    tabs, newlines).<br>
+                    <b>std::ends:</b> Inserts a null character (\0) into the output stream, typically used to
+                    null-terminate character sequences for compatibility with C-style strings.<br>
+                    <b>std::hex, std::oct, std::dec:</b> Changes the base used for integer input/output to hexadecimal,
+                    octal, or decimal, respectively.<br>
+                    <b>std::boolalpha, std::noboolalpha:</b> Controls whether boolean values (true and false) are
+                    represented textually or numerically (1 and 0).
+                </p>
+                <h4>Manipulators With Arguments</h4>
+                <p id="p1">These provide more precise control over formatting and require including the <iomanip> header
+                        file.
+                        std::setw(n): Sets the field width for the next output operation to n characters. Any unused
+                        space is filled with a padding character (by default, a space). This effect is temporary and
+                        only applies to the immediately following output.
+                        std::setfill(c): Specifies the character c to use as padding when a field width is set by
+                        std::setw. This effect persists until changed again.
+                        std::setprecision(n): Sets the number of digits to display after the decimal point for
+                        floating-point values when used with std::fixed, or sets the total number of significant digits
+                        otherwise. This effect persists until changed.
+                        std::setbase(b): Sets the numeric base to b (can be 8, 10, or 16).
+                        std::left, std::right, std::internal: Controls the alignment of output within the specified
+                        field width. std::left aligns output to the left, std::right to the right (default for numbers),
+                        and std::internal puts the fill character between the sign and the number.
+                </p>
+                <h4>Example Usage</h4><br>
+                <pre id="p2">#include &lt;iostream&gt;
+#include &lt;iomanip&gt;
+#include &lt;cmath&gt;
+
+int main() {
+    double value = 1.41421356;
+    int number = 255;
+    bool flag = true;
+
+    std::cout &lt;&lt; "Default: " &lt;&lt; value &lt;&lt; std::endl;
+    // Output: Default: 1.41421
+
+    std::cout &lt;&lt; std::fixed &lt;&lt; std::setprecision(3) &lt;&lt; "Fixed/Precision: " &lt;&lt; value &lt;&lt; std::endl;
+    // Output: Fixed/Precision: 1.414
+
+    std::cout &lt;&lt; std::hex &lt;&lt; std::showbase &lt;&lt; "Hexadecimal: " &lt;&lt; number &lt;&lt; std::endl;
+    // Output: Hexadecimal: 0xff
+
+    std::cout &lt;&lt; std::boolalpha &lt;&lt; "Boolean: " &lt;&lt; flag &lt;&lt; std::endl;
+    // Output: Boolean: true
+    
+    std::cout &lt;&lt; std::setw(10) &lt;&lt; std::setfill('*') &lt;&lt; std::right &lt;&lt; "Aligned: " &lt;&lt; 42 &lt;&lt; std::endl;
+    // Output: Aligned: ********42
+
+    return 0;
+}
+</pre><br>
+            </li>
+            <li>
+                <h2>Operators in C++</h2>
+                <h3>Types of Operators</h3>
+                <p id="p1">C++ operators are categorized into several types, each used to perform specific mathematical,
+                    logical, or other manipulations on data. They can also be classified based on the number of operands
+                    they take (unary, binary, or ternary).<br><br>
+                    The main types of operators in C++ are:
+                </p>
+                <p id="p1"><b>Arithmetic Operators:</b> Used for basic mathematical operations.
+                    <i id="i1">+:</i> Addition
+                    <i id=i1>-:</i> Subtraction/ Unary minus
+                    <i id=i1>*:</i> Multiplication
+                    <i id=i1>/:</i> Division
+                    <i id=i1>%:</i> Modulo (remainder after division)
+                    <i id=i1>++:</i> Increment (increases value by 1)
+                    <i id=i1>--:</i> Decrement (decreases value by 1)
+                    <b>Assignment Operators:</b> Used to assign values to variables.
+                    <i id=i1>=:</i> Simple assignment (e.g., a = b)
+                    <i id="i1">+=, -=, *=, /=, %=, &=, |=, ^=, &lt;&lt;=, &gt;&gt;=:</i> <b>Compound assignments</b>
+                    (e.g., a += b is equivalent to a = a + b)
+                    <b>Relational (Comparison) Operators:</b> Used to compare two operands and return a boolean result
+                    (true or false, often represented as 1 or 0).<br>
+                    <i id="i1">==:</i> Equal to
+                    <i id="i1">!=:</i> Not equal to
+                    <i id="i1">&gt;:</i> Greater than
+                    <i id="i1">&lt;:</i> Less than
+                    <i id=i1>&gt;=:</i> Greater than or equal to
+                    <i id="i1">&lt;=:</i> Less than or equal to
+                    <b>>ogical Operators:</b> Used to combine conditions and evaluate boolean expressions.<br>
+                    <i id="i1">&&:</i> Logical AND (true if both operands are true)
+                    <i id="i1">||:</i> Logical OR (true if at least one operand is true)
+                    <i id="i1">!:</i> Logical NOT (reverses the boolean state)
+                    <b>Bitwise Operators:</b> Perform operations on individual bits of integer data types.<br>
+                    <i id="i1">&:</i> Binary AND
+                    <i id="i1">|:</i> Binary OR
+                    <i id="i1">^:</i> Binary XOR
+                    <i id="i1">~:</i> Binary One's Complement (flips bits)
+                    <i id="i1">&lt;&lt;:</i> Binary Left Shift>>: Binary Right Shift
+                    <b>Miscellaneous/Other Operators:</b>
+                    <b>sizeof:</b> Returns the size of a variable or data type in bytes.
+                    <i id="i1">?::</i> Conditional (Ternary) operator (e.g., condition ? exp1 : exp2).
+                    <i id="i1">,:</i> Comma operator (evaluates expressions left-to-right, the value of the entire
+                    expression is
+                    the value of the rightmost expression).
+                    <i id="i1">. (dot) and -> (arrow):</i> Member access operators, used to access members of structures
+                    or
+                    classes.
+                    <i id="i1">&:</i> Address-of operator (returns the memory address).
+                    <i id="i1">*:</i> Dereference operator (pointer to a variable).
+                    <i id="i1">:::</i> Scope resolution operator (used to access global variables or members of a
+                    namespace/class).
+                </p>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
